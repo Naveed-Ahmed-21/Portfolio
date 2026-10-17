@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/theme.css">
-  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <!-- Interactive behavior is implemented in app.js -->
   <script src="/app.js" defer></script>
 </head>
 <body x-data="portfolio()" @keydown.escape.window="selectedProject = null">
@@ -25,7 +25,7 @@
     <a href="#contact" class="nav-cta">Let's talk <span>↗</span></a>
     <button class="menu-toggle" @click="mobileMenu = !mobileMenu" :aria-expanded="mobileMenu.toString()" aria-label="Toggle navigation"><span></span><span></span></button>
   </header>
-  <div class="mobile-menu" x-show="mobileMenu" x-transition.opacity @click.outside="mobileMenu = false" x-cloak>
+  <div class="mobile-menu" hidden>
     <a href="#work" @click="mobileMenu = false">Selected work ↗</a>
     <a href="#about" @click="mobileMenu = false">About me ↗</a>
     <a href="#stack" @click="mobileMenu = false">Toolkit ↗</a>
@@ -156,7 +156,7 @@
 
   <footer class="footer"><div class="section-wrap footer-inner"><a href="#home" class="footer-brand">N<span>.</span></a><p>Designed with curiosity. Built with intent.</p><span class="footer-time">© <span x-text="new Date().getFullYear()"></span> NAVEED AHMED K.</span><a href="#home" class="back-top">BACK TO TOP ↑</a></div></footer>
 
-  <div class="project-modal" x-show="selectedProject" x-transition.opacity x-cloak @click.self="selectedProject = null" role="dialog" aria-modal="true" :aria-label="selectedProject ? selectedProject.name + ' details' : 'Project details'">
+  <div class="project-modal" hidden role="dialog" aria-modal="true" aria-label="Project details">
     <div class="modal-panel" x-show="selectedProject" x-transition:enter="transition ease-out duration-250" x-transition:enter-start="opacity-0 translate-y-5" x-transition:enter-end="opacity-100 translate-y-0">
       <button class="modal-close" @click="selectedProject = null" aria-label="Close project details">✕</button>
       <div class="modal-eyebrow" x-text="selectedProject ? selectedProject.kicker : ''"></div>
