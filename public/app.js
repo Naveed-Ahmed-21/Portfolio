@@ -1,59 +1,59 @@
 const PROJECTS = [
   {
-    name: 'Smart Canteen',
-    kicker: 'MOBILE APP / 001',
-    type: 'FLUTTER + BACKEND',
+    name: 'CampusHub',
+    kicker: 'CAMPUS PLATFORM / 001',
+    type: 'FLUTTER + AI',
+    tone: 'campus',
+    category: 'Flutter',
+    tags: ['Flutter', 'Riverpod', 'GoRouter', 'Node.js', 'PostgreSQL', 'Prisma', 'AI'],
+    short: 'A full-stack campus platform connecting students, faculty, academic workflows, and career preparation.',
+    description: 'Engineered a full-stack campus platform with student, faculty, and academic workflows using Flutter, Node.js, and PostgreSQL. Includes an AI Career Hub concept for personalized learning roadmaps, adaptive skill assessments, and job-readiness analysis, alongside course enrollment, timetables, attendance tracking, and faculty communication.',
+    focus: 'Academic workflows, student–faculty communication, and AI-assisted career preparation.',
+    stack: 'Flutter, Riverpod, GoRouter, Node.js, Express.js, TypeScript, PostgreSQL, Prisma, AI',
+    url: 'https://github.com/Naveed-Ahmed-21/CampusHub'
+  },
+  {
+    name: 'Chat X',
+    kicker: 'REAL-TIME MESSAGING / 002',
+    type: 'FLUTTER + FIREBASE',
+    tone: 'chat',
+    category: 'Flutter',
+    tags: ['Flutter', 'GetX', 'Firebase Auth', 'Cloud Firestore', 'Cloudinary', 'ZegoCloud'],
+    short: 'A cross-platform chat app with secure sign-in, live messaging, user search, and profile image uploads.',
+    description: 'Developed a real-time cross-platform chat application using Flutter, GetX, Firebase Authentication, and Cloud Firestore. Features include secure user authentication, real-time messaging, user profile management with Cloudinary image uploads, chat rooms, user search, and live message synchronization with a responsive UI.',
+    focus: 'Real-time data synchronization, authentication, chat rooms, and profile management.',
+    stack: 'Flutter, GetX, Firebase Auth, Cloud Firestore, Cloudinary, Node.js, Express.js, ZegoCloud',
+    url: 'https://github.com/Naveed-Ahmed-21/Chat-X'
+  },
+  {
+    name: 'Smart Canteen System',
+    kicker: 'FOOD ORDERING / 003',
+    type: 'FLUTTER + FIREBASE',
     tone: 'canteen',
     category: 'Flutter',
-    tags: ['Flutter', 'Node.js', 'MongoDB', 'Admin Dashboard'],
-    short: 'A campus canteen experience built around quicker ordering and practical admin workflows.',
-    description: 'A canteen app concept built with Flutter and a Node.js/MongoDB backend, with an admin dashboard for managing the day-to-day workflow. Designed to make the ordering experience simpler for students and operations easier to manage.',
-    focus: 'Mobile-first ordering flows, clear information hierarchy, and an admin workflow.',
-    stack: 'Flutter, Node.js, MongoDB',
-    url: ''
+    tags: ['Flutter', 'Firebase', 'Cloud Firestore', 'Admin Dashboard', 'Role-based Auth'],
+    short: 'A dine-in food ordering platform with a dedicated admin dashboard for users, orders, and inventory.',
+    description: 'Developed a dine-in food ordering platform with a dedicated admin dashboard serving end users and administrators. Implemented backend APIs and role-based authentication for user and admin access levels, and designed a normalized Firestore schema to manage orders, users, and inventory efficiently.',
+    focus: 'Food ordering, role-based access, order management, and inventory data modeling.',
+    stack: 'Flutter, Firebase, Cloud Firestore',
+    url: 'https://github.com/Naveed-Ahmed-21/canteen-app-with-admin-dashboard'
   },
   {
     name: 'Dual Tap Game',
-    kicker: 'MOBILE GAME / 002',
+    kicker: 'MOBILE GAME / 004',
     type: 'FLUTTER GAME',
     tone: 'game',
     category: 'Flutter',
-    tags: ['Flutter', 'Dart', 'Game Logic', 'Android'],
-    short: 'A fast, focused tapping game where timing and a clean feedback loop do the talking.',
-    description: 'A Flutter tapping game focused on simple controls, quick reactions, and replayable gameplay. The project has a public GitHub repository and has also been part of an Android release and Play Console preparation workflow.',
+    tags: ['Flutter', 'Dart', 'Android', 'Game Logic'],
+    short: 'A compact tapping game built around quick reactions and a focused mobile experience.',
+    description: 'A Flutter tapping game focused on simple touch controls, quick reactions, and replayable gameplay. The project is part of Naveed’s Android development and app publishing experience.',
     focus: 'Responsive touch interaction, game state, and a compact mobile experience.',
-    stack: 'Flutter, Dart',
+    stack: 'Flutter, Dart, Android SDK',
     url: 'https://github.com/Naveed-Ahmed-21/Dual-Tap-Game'
-  },
-  {
-    name: 'Campus Placement System',
-    kicker: 'WEB PLATFORM / 003',
-    type: 'MERN STACK',
-    tone: 'campus',
-    category: 'Full-stack',
-    tags: ['MongoDB', 'Express', 'React', 'Node.js'],
-    short: 'A placement workflow system that brings student and placement activities into one web platform.',
-    description: 'A Campus Placement Management System built as a MERN-stack project. It explores the workflows involved in organizing placement information and bringing student-facing and administration needs into one web platform.',
-    focus: 'Full-stack CRUD flows, structured data, and practical role-based workflows.',
-    stack: 'MongoDB, Express.js, React, Node.js',
-    url: ''
-  },
-  {
-    name: 'Full-stack ToDo',
-    kicker: 'PRODUCTIVITY / 004',
-    type: 'FLUTTER + API',
-    tone: 'todo',
-    category: 'Full-stack',
-    tags: ['Flutter', 'Node.js', 'REST API', 'JWT'],
-    short: 'A task manager that connects a Flutter interface to a real backend workflow.',
-    description: 'A full-stack ToDo app combining a Flutter client with backend API integration. The focus is the complete flow—not only the UI—including request handling and authenticated interactions.',
-    focus: 'API integration, task state, and clear interaction feedback.',
-    stack: 'Flutter, Node.js, REST APIs, JWT',
-    url: ''
   }
 ];
 
-const PROJECT_FILTERS = ['All', 'Flutter', 'Full-stack', 'Web'];
+const PROJECT_FILTERS = ['All', 'Flutter', 'Full-stack', 'Backend'];
 
 function escapeHTML(value) {
   return String(value).replace(/[&<>"']/g, char => ({
@@ -65,10 +65,10 @@ function artMarkup(project, index) {
   const top = `<span class="art-index">${String(index + 1).padStart(2, '0')}</span><span class="art-type">${escapeHTML(project.type)}</span>`;
   const open = '<div class="project-open" aria-hidden="true">↗</div>';
   const art = {
-    campus: `<div class="campus-art"><div class="campus-header"><span>campus<span>hub.</span></span><span class="campus-menu">☰</span></div><div class="campus-welcome">Your campus,<br><i>connected.</i></div><div class="campus-cards"><div class="campus-mini"><span>◫</span><b>Resources</b><small>Learn at your pace</small></div><div class="campus-mini campus-mini-lime"><span>⌘</span><b>Communities</b><small>Find your people</small></div></div><div class="campus-bottom"><span>⌂</span><span>◇</span><span>▤</span><span>○</span></div></div>`,
+    campus: `<div class="campus-art"><div class="campus-header"><span>campus<span>hub.</span></span><span class="campus-menu">☰</span></div><div class="campus-welcome">Your campus,<br><i>connected.</i></div><div class="campus-cards"><div class="campus-mini"><span>◫</span><b>Resources</b><small>Learn at your pace</small></div><div class="campus-mini campus-mini-lime"><span>⌘</span><b>Career Hub</b><small>Plan your next step</small></div></div><div class="campus-bottom"><span>⌂</span><span>◇</span><span>▤</span><span>○</span></div></div>`,
     canteen: `<div class="canteen-art"><div class="canteen-top"><span>SMART CANTEEN</span><span>● OPEN</span></div><div class="canteen-title">Good food.<br><i>Zero queue.</i></div><div class="food-plate"><div class="plate-bowl"><span>✳</span><b>FRESH<br>PICKS</b></div></div><div class="canteen-order"><span>Today's special</span><b>South Indian combo <em>₹80</em></b><small>ORDER AHEAD ↗</small></div></div>`,
-    game: `<div class="game-art"><div class="game-caption"><span>DUAL TAP</span><span>GAME / 001</span></div><div class="game-title">REFLEX<br><i>MODE</i></div><div class="game-graphic"><div class="game-circle circle-one">TAP</div><div class="game-circle circle-two">TAP</div><div class="game-cross">+</div></div><div class="game-foot"><span>BUILT IN FLUTTER</span><span>PLAY ↗</span></div></div>`,
-    todo: `<div class="todo-art"><div class="todo-top"><span>MONDAY / 09:41</span><span>✳</span></div><div class="todo-title">Do the<br><i>work.</i></div><div class="todo-task done"><span>✓</span><b>Map out the idea</b><small>09:00</small></div><div class="todo-task"><span>○</span><b>Build the first version</b><small>10:30</small></div><div class="todo-task"><span>○</span><b>Make it feel right</b><small>14:00</small></div><div class="todo-progress"><span></span></div></div>`
+    game: `<div class="game-art"><div class="game-caption"><span>DUAL TAP</span><span>GAME / 004</span></div><div class="game-title">REFLEX<br><i>MODE</i></div><div class="game-graphic"><div class="game-circle circle-one">TAP</div><div class="game-circle circle-two">TAP</div><div class="game-cross">+</div></div><div class="game-foot"><span>BUILT IN FLUTTER</span><span>PLAY ↗</span></div></div>`,
+    chat: `<div class="chat-art"><div class="chat-top"><span>CHAT X</span><span>● ONLINE</span></div><div class="chat-title">Talk more.<br><i>Feel closer.</i></div><div class="chat-bubble bubble-left">Hey! Are you around? <small>09:41 ✓✓</small></div><div class="chat-bubble bubble-right">Yep, what's up? <small>09:42 ✓✓</small></div><div class="chat-bubble bubble-left">Just shipped the new build ✳ <small>09:42 ✓✓</small></div><div class="chat-compose">Message... <span>↗</span></div></div>`
   };
   return top + (art[project.tone] || '') + open;
 }
@@ -117,7 +117,8 @@ function renderPhone(screen) {
 function visibleProjects(filter) {
   if (filter === 'All') return PROJECTS;
   if (filter === 'Flutter') return PROJECTS.filter(project => project.tags.some(tag => tag.toLowerCase().includes('flutter')));
-  if (filter === 'Full-stack' || filter === 'Web') return PROJECTS.filter(project => project.category === 'Full-stack');
+  if (filter === 'Full-stack') return PROJECTS.filter(project => /Node.js|Express|PostgreSQL|Prisma|Firebase|Cloud Firestore|Cloudinary|ZegoCloud/i.test(project.stack));
+  if (filter === 'Backend') return PROJECTS.filter(project => /Node.js|Express|PostgreSQL|Prisma|Firebase|Cloud Firestore|Cloudinary|ZegoCloud/i.test(project.stack));
   return PROJECTS;
 }
 
