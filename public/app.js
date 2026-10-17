@@ -165,7 +165,7 @@ function showProject(name) {
   modal.hidden = false;
   document.body.classList.add('modal-open');
   modal.querySelector('.modal-close').addEventListener('click', closeProject);
-  modal.addEventListener('click', event => { if (event.target === modal) closeProject(); }, { once: true });
+  modal.onclick = event => { if (event.target === modal) closeProject(); };
   modal.querySelector('.modal-close').focus();
 }
 
