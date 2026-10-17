@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10110f">
+  <meta name="description" content="Naveed Ahmed K — Flutter & Full-stack developer building useful, thoughtful digital products for mobile and web.">
+  <title>Naveed Ahmed K. — App Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/theme.css">
+  <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <script src="/app.js" defer></script>
+</head>
+<body x-data="portfolio()" @keydown.escape.window="selectedProject = null">
+  <div class="site-noise" aria-hidden="true"></div>
+  <header class="topbar">
+    <a href="#home" class="wordmark" aria-label="Naveed home"><span class="mark">N<span>.</span></span><span class="wordmark-name">NAVEED AHMED</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="#work">Work <span>01</span></a>
+      <a href="#about">About <span>02</span></a>
+      <a href="#stack">Toolkit <span>03</span></a>
+    </nav>
+    <a href="#contact" class="nav-cta">Let's talk <span>↗</span></a>
+    <button class="menu-toggle" @click="mobileMenu = !mobileMenu" :aria-expanded="mobileMenu.toString()" aria-label="Toggle navigation"><span></span><span></span></button>
+  </header>
+  <div class="mobile-menu" x-show="mobileMenu" x-transition.opacity @click.outside="mobileMenu = false" x-cloak>
+    <a href="#work" @click="mobileMenu = false">Selected work ↗</a>
+    <a href="#about" @click="mobileMenu = false">About me ↗</a>
+    <a href="#stack" @click="mobileMenu = false">Toolkit ↗</a>
+    <a href="#contact" @click="mobileMenu = false">Contact ↗</a>
+  </div>
+
+  <main>
+    <section class="hero section-wrap" id="home">
+      <div class="hero-copy">
+        <div class="eyebrow reveal"><span class="status-dot"></span> DEVELOPER · INDIA <span class="eyebrow-rule"></span> AVAILABLE FOR OPPORTUNITIES</div>
+        <h1 class="hero-title reveal">I turn ideas<br>into <span class="outlined-word">apps<span class="lime-dot">.</span></span></h1>
+        <p class="hero-description reveal">Hey, I'm <strong>Naveed Ahmed K.</strong> A Flutter & full-stack developer who loves making digital products feel fast, thoughtful, and a little different.</p>
+        <div class="hero-actions reveal">
+          <a href="#work" class="button button-primary">Explore my work <span>↘</span></a>
+          <a href="https://github.com/Naveed-Ahmed-21" target="_blank" rel="noreferrer" class="text-link">GitHub profile <span>↗</span></a>
+        </div>
+        <div class="hero-foot reveal"><span class="mono-label">CURRENTLY BUILDING</span><span class="current-build"><span class="tiny-pulse"></span> Mobile experiences & full-stack products</span></div>
+      </div>
+      <div class="hero-visual reveal" aria-label="Interactive mobile app preview">
+        <div class="visual-orbit orbit-one"></div><div class="visual-orbit orbit-two"></div>
+        <div class="float-label label-left"><span class="label-icon">✳</span><span><b>Flutter</b><small>One codebase, many screens</small></span></div>
+        <div class="phone-shadow"></div>
+        <div class="phone">
+          <div class="phone-frame">
+            <div class="phone-notch"></div>
+            <div class="phone-screen" :class="'screen-' + phoneScreen">
+              <div class="phone-status"><span>9:41</span><span>▮ ▴ ▰</span></div>
+              <div class="app-topline"><span class="app-symbol">n<span>.</span></span><span class="app-avatar">NA</span></div>
+              <div class="app-greeting" x-text="phoneScreen === 'canteen' ? 'Good afternoon,' : phoneScreen === 'game' ? 'Ready. Set.' : 'Hey, Naveed.'"></div>
+              <div class="app-heading" x-text="phoneScreen === 'canteen' ? 'What sounds good?' : phoneScreen === 'game' ? 'Tap your focus.' : 'Make today count.'"></div>
+              <div class="app-date" x-text="phoneScreen === 'canteen' ? 'FRESH PICKS · CAMPUS CANTEEN' : phoneScreen === 'game' ? 'DUAL TAP · REACTION GAME' : 'YOUR SPACE, YOUR PACE'"></div>
+              <template x-if="phoneScreen === 'canteen'">
+                <div class="mock-food">
+                  <div class="food-art"><span class="food-leaf">✳</span><div class="food-bowl"><i></i><i></i><i></i><b></b></div></div>
+                  <div class="mock-item"><span>Chef's special</span><b>Masala bowl</b><small>Fresh · Hot · Local</small></div>
+                  <div class="mock-price">₹80 <span>↗</span></div>
+                </div>
+              </template>
+              <template x-if="phoneScreen === 'game'">
+                <div class="game-preview"><div class="game-top"><span>BEST SCORE</span><b>0248</b></div><div class="tap-orbs"><span class="orb-a">TAP</span><span class="orb-b">TAP</span></div><div class="game-bar"><span></span></div><small>REACTION MODE · LEVEL 04</small></div>
+              </template>
+              <template x-if="phoneScreen === 'focus'">
+                <div class="focus-preview"><div class="focus-ring"><span>25:00</span><small>FOCUS TIME</small></div><div class="focus-task"><span class="task-check">✓</span><span><b>Ship the next idea</b><small>Deep work · 1 task</small></span></div><div class="focus-task"><span class="task-empty"></span><span><b>Review the details</b><small>Design · 20 min</small></span></div></div>
+              </template>
+              <div class="phone-bottom"><span class="bottom-active">⌂</span><span>◇</span><span>▤</span><span>○</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="float-label label-right"><span class="stack-glyph">{ }</span><span><b>Built with intent</b><small>Pixel by pixel</small></span></div>
+        <div class="preview-switcher">
+          <span class="switcher-label">LIVE PREVIEW</span>
+          <button @click="phoneScreen = 'canteen'" :class="{active: phoneScreen === 'canteen'}" aria-label="Preview canteen app">01</button>
+          <button @click="phoneScreen = 'game'" :class="{active: phoneScreen === 'game'}" aria-label="Preview game app">02</button>
+          <button @click="phoneScreen = 'focus'" :class="{active: phoneScreen === 'focus'}" aria-label="Preview productivity app">03</button>
+        </div>
+      </div>
+      <div class="hero-scroll"><span class="scroll-line"></span> SCROLL TO EXPLORE <span>↓</span></div>
+    </section>
+
+    <section class="ticker" aria-label="Specialties"><div class="ticker-track"><span>FLUTTER DEVELOPMENT <b>✳</b> FULL-STACK WEB <b>✳</b> PRODUCT THINKING <b>✳</b> CLEAN UI <b>✳</b> FLUTTER DEVELOPMENT <b>✳</b> FULL-STACK WEB <b>✳</b> PRODUCT THINKING <b>✳</b> CLEAN UI <b>✳</b></span></div></section>
+
+    <section class="work-section section-wrap section-pad" id="work">
+      <div class="section-heading">
+        <div><div class="eyebrow"><span class="section-index">01</span> THE GOOD STUFF</div><h2>Selected <span class="serif-italic">work</span><span class="lime-dot">.</span></h2></div>
+        <p class="section-intro">A few things I've built, broken, refined, and shipped. Each one taught me something worth keeping.</p>
+      </div>
+      <div class="project-toolbar">
+        <span class="mono-label">PROJECT ARCHIVE <span x-text="'/ ' + filteredProjects.length.toString().padStart(2,'0')"></span></span>
+        <div class="project-filters" role="group" aria-label="Filter projects">
+          <template x-for="filter in filters" :key="filter"><button @click="activeFilter = filter" :class="{active: activeFilter === filter}" x-text="filter"></button></template>
+        </div>
+      </div>
+      <div class="project-grid">
+        <template x-for="(project, index) in filteredProjects" :key="project.name">
+          <article class="project-card" :class="'project-' + project.tone" @click="selectedProject = project" tabindex="0" @keydown.enter="selectedProject = project" role="button" :aria-label="'View details for ' + project.name">
+            <div class="project-art" :class="'art-' + project.tone">
+              <span class="art-index" x-text="'0' + (index + 1)"></span><span class="art-type" x-text="project.type"></span>
+              <template x-if="project.tone === 'campus'">
+                <div class="campus-art"><div class="campus-header"><span>campus<span>hub.</span></span><span class="campus-menu">☰</span></div><div class="campus-welcome">Your campus,<br><i>connected.</i></div><div class="campus-cards"><div class="campus-mini"><span>◫</span><b>Resources</b><small>Learn at your pace</small></div><div class="campus-mini campus-mini-lime"><span>⌘</span><b>Communities</b><small>Find your people</small></div></div><div class="campus-bottom"><span>⌂</span><span>◇</span><span>▤</span><span>○</span></div></div>
+              </template>
+              <template x-if="project.tone === 'canteen'">
+                <div class="canteen-art"><div class="canteen-top"><span>SMART CANTEEN</span><span>● OPEN</span></div><div class="canteen-title">Good food.<br><i>Zero queue.</i></div><div class="food-plate"><div class="plate-bowl"><span>✳</span><b>FRESH<br>PICKS</b></div></div><div class="canteen-order"><span>Today's special</span><b>South Indian combo <em>₹80</em></b><small>ORDER AHEAD ↗</small></div></div>
+              </template>
+              <template x-if="project.tone === 'game'">
+                <div class="game-art"><div class="game-caption"><span>DUAL TAP</span><span>GAME / 001</span></div><div class="game-title">REFLEX<br><i>MODE</i></div><div class="game-graphic"><div class="game-circle circle-one">TAP</div><div class="game-circle circle-two">TAP</div><div class="game-cross">+</div></div><div class="game-foot"><span>BUILT IN FLUTTER</span><span>PLAY ↗</span></div></div>
+              </template>
+              <template x-if="project.tone === 'todo'">
+                <div class="todo-art"><div class="todo-top"><span>MONDAY / 09:41</span><span>✳</span></div><div class="todo-title">Do the<br><i>work.</i></div><div class="todo-task done"><span>✓</span><b>Map out the idea</b><small>09:00</small></div><div class="todo-task"><span>○</span><b>Build the first version</b><small>10:30</small></div><div class="todo-task"><span>○</span><b>Make it feel right</b><small>14:00</small></div><div class="todo-progress"><span></span></div></div>
+              </template>
+              <div class="project-open">↗</div>
+            </div>
+            <div class="project-meta"><div><div class="project-kicker" x-text="project.kicker"></div><h3 x-text="project.name"></h3></div><span class="project-arrow">↗</span></div>
+            <p class="project-description" x-text="project.short"></p>
+            <div class="tag-list"><template x-for="tag in project.tags" :key="tag"><span x-text="tag"></span></template></div>
+          </article>
+        </template>
+      </div>
+      <div class="project-note"><span class="note-asterisk">✳</span> <span>More experiments are cooking. These are just the ones ready for the spotlight.</span> <a href="https://github.com/Naveed-Ahmed-21" target="_blank" rel="noreferrer">See my GitHub <span>↗</span></a></div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="section-wrap section-pad about-layout">
+        <div class="about-left"><div class="eyebrow"><span class="section-index">02</span> A LITTLE ABOUT ME</div><h2>Curious mind.<br><span class="serif-italic">Builder</span> hands<span class="lime-dot">.</span></h2><div class="about-sticker"><span>THINK</span><span class="sticker-star">✳</span><span>MAKE</span><span>REFINE</span></div></div>
+        <div class="about-right"><p class="about-lead">I enjoy the space where good engineering meets good experience.</p><p>I'm a final-year Information Technology student at Government College of Engineering, Erode. I build mobile apps with Flutter and connect them to real backends using Node.js, Express, and MongoDB.</p><p>My favorite part isn't just getting something to work. It's making the interaction feel obvious, the UI feel alive, and the code feel like something I can stand behind.</p>
+          <div class="about-stats"><div><strong>04<span>+</span></strong><small>PROJECTS BUILT</small></div><div><strong>02</strong><small>CORE STACKS</small></div><div><strong>∞</strong><small>THINGS TO LEARN</small></div></div>
+          <a href="https://www.linkedin.com/in/naveedahmedk/" target="_blank" rel="noreferrer" class="text-link about-link">A bit more on LinkedIn <span>↗</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="stack-section section-wrap section-pad" id="stack">
+      <div class="section-heading stack-heading"><div><div class="eyebrow"><span class="section-index">03</span> MY TOOLKIT</div><h2>Things I <span class="serif-italic">reach for</span><span class="lime-dot">.</span></h2></div><p class="section-intro">Tools are just tools. I care about knowing why—and when—to use them.</p></div>
+      <div class="stack-grid">
+        <div class="stack-group"><div class="stack-group-head"><span class="stack-number">01</span><h3>Mobile</h3><span class="stack-group-icon">▣</span></div><div class="skill-row"><span>Flutter</span><span class="skill-level">DAILY DRIVER</span></div><div class="skill-row"><span>Dart</span><span class="skill-level">DAILY DRIVER</span></div><div class="skill-row"><span>Riverpod</span><span class="skill-level">STATE MGMT</span></div><div class="skill-row"><span>GoRouter</span><span class="skill-level">NAVIGATION</span></div></div>
+        <div class="stack-group"><div class="stack-group-head"><span class="stack-number">02</span><h3>Backend & web</h3><span class="stack-group-icon">{ }</span></div><div class="skill-row"><span>Node.js / Express</span><span class="skill-level">API LAYER</span></div><div class="skill-row"><span>MongoDB</span><span class="skill-level">DATABASE</span></div><div class="skill-row"><span>REST APIs / JWT</span><span class="skill-level">INTEGRATION</span></div><div class="skill-row"><span>HTML / CSS / JS</span><span class="skill-level">FRONTEND</span></div></div>
+        <div class="stack-group"><div class="stack-group-head"><span class="stack-number">03</span><h3>Workflow</h3><span class="stack-group-icon">⌘</span></div><div class="skill-row"><span>Git & GitHub</span><span class="skill-level">VERSIONING</span></div><div class="skill-row"><span>Postman</span><span class="skill-level">API TESTING</span></div><div class="skill-row"><span>Docker</span><span class="skill-level">CONTAINERS</span></div><div class="skill-row"><span>Linux</span><span class="skill-level">DAILY WORKFLOW</span></div></div>
+      </div>
+      <div class="stack-bottomline"><span class="tiny-pulse"></span> Always learning. Currently sharpening architecture, testing, and product sense.</div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="section-wrap contact-layout">
+        <div class="contact-orbit" aria-hidden="true"><span class="orbit-word">LET'S BUILD SOMETHING</span><span class="orbit-star">✳</span><span class="orbit-core">N<span>.</span></span></div>
+        <div class="contact-copy"><div class="eyebrow"><span class="section-index">04</span> YOUR MOVE</div><h2>Have an idea?<br>Let's make it <span class="serif-italic">real</span><span class="lime-dot">.</span></h2><p>Internship, collaboration, or a product idea that won't leave your head. I'm up for a good conversation.</p><a class="button button-primary contact-button" href="https://www.linkedin.com/in/naveedahmedk/" target="_blank" rel="noreferrer">Let's connect <span>↗</span></a><div class="contact-links"><a href="https://www.linkedin.com/in/naveedahmedk/" target="_blank" rel="noreferrer">MESSAGE <span>↗</span></a><a href="https://github.com/Naveed-Ahmed-21" target="_blank" rel="noreferrer">GITHUB <span>↗</span></a><a href="https://www.linkedin.com/in/naveedahmedk/" target="_blank" rel="noreferrer">LINKEDIN <span>↗</span></a></div></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="section-wrap footer-inner"><a href="#home" class="footer-brand">N<span>.</span></a><p>Designed with curiosity. Built with intent.</p><span class="footer-time">© <span x-text="new Date().getFullYear()"></span> NAVEED AHMED K.</span><a href="#home" class="back-top">BACK TO TOP ↑</a></div></footer>
+
+  <div class="project-modal" x-show="selectedProject" x-transition.opacity x-cloak @click.self="selectedProject = null" role="dialog" aria-modal="true" :aria-label="selectedProject ? selectedProject.name + ' details' : 'Project details'">
+    <div class="modal-panel" x-show="selectedProject" x-transition:enter="transition ease-out duration-250" x-transition:enter-start="opacity-0 translate-y-5" x-transition:enter-end="opacity-100 translate-y-0">
+      <button class="modal-close" @click="selectedProject = null" aria-label="Close project details">✕</button>
+      <div class="modal-eyebrow" x-text="selectedProject ? selectedProject.kicker : ''"></div>
+      <h2 x-text="selectedProject ? selectedProject.name : ''"></h2>
+      <p class="modal-desc" x-text="selectedProject ? selectedProject.description : ''"></p>
+      <div class="modal-tags" x-show="selectedProject"><template x-for="tag in (selectedProject ? selectedProject.tags : [])" :key="tag"><span x-text="tag"></span></template></div>
+      <div class="modal-highlights" x-show="selectedProject"><div class="modal-highlight"><span>01</span><b>Focus</b><p x-text="selectedProject ? selectedProject.focus : ''"></p></div><div class="modal-highlight"><span>02</span><b>Stack</b><p x-text="selectedProject ? selectedProject.stack : ''"></p></div></div>
+      <a class="button button-primary modal-github" :href="selectedProject ? selectedProject.url : '#'" target="_blank" rel="noreferrer" @click="selectedProject && selectedProject.url === '#' ? $event.preventDefault() : null">View project / source <span>↗</span></a>
+      <p class="modal-hint" x-show="selectedProject && selectedProject.url === '#'">Repository link can be added when this project is published.</p>
+    </div>
+  </div>
+</body>
+</html>
