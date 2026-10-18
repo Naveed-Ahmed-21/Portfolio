@@ -159,4 +159,33 @@ html,body,main{background:#F5F3ED!important;color:#252922}
 .journey-section .timeline-marker{background:#52745A;color:#fffdf8;border-color:#52745A}
 .journey-section .timeline-label{color:#52745A}
 .hero-portrait-frame[hidden]{display:none!important}
+/* Identity, journey timeline and app-first project previews */
+.hero-intro strong{color:#252922!important;font-weight:800;background:#52745A14;padding:0 3px;border-radius:2px}
+.hero-portrait-frame[hidden]{display:none!important}
+.hero-portrait-frame{position:relative;display:block;width:min(100%,440px);aspect-ratio:4/5;max-height:490px;margin:10px auto 20px;background:#e9e6dc;border:1px solid #d8d8ce;overflow:hidden;box-shadow:0 20px 45px #25292212}
+.hero-portrait-frame .hero-photo{display:block;width:100%;height:100%;object-fit:cover;object-position:center 18%}
+.hero-portrait-frame figcaption{position:absolute;left:12px;right:12px;bottom:12px;padding:10px 12px;background:#F5F3EDEB;border:1px solid #d8d8ce;color:#252922;font:9px var(--mono);letter-spacing:.08em}
+.hero-portrait-frame figcaption span{color:#52745A}
+.workspace{display:flex;flex-direction:column;gap:12px}
+.workspace-top{order:0}.hero-portrait-frame{order:1}.editor-card{order:2;max-height:140px;overflow:hidden}.phone-stage{order:3}
+.journey-section{padding-top:70px;padding-bottom:80px;background:#F5F3ED!important}
+.journey-section .section-wrap{max-width:1240px;margin:0 auto;padding-left:clamp(22px,4vw,60px);padding-right:clamp(22px,4vw,60px)}
+.journey-section .section-heading{margin-bottom:38px}
+.journey-section .timeline{border-top:1px solid #d8d8ce;display:block}
+.journey-section .timeline-item{display:grid;grid-template-columns:52px minmax(0,1fr) minmax(80px,auto);align-items:start;gap:20px;padding:25px 0;border-bottom:1px solid #d8d8ce}
+.journey-section .timeline-marker{display:grid;place-items:center;width:40px;height:32px;min-width:40px;border-radius:4px;background:#52745A;color:#fffdf8;font:11px var(--mono);padding:0;margin:0;line-height:1}
+.journey-section .timeline-label{display:block;margin:4px 0 8px;font-size:9px;letter-spacing:.13em;color:#52745A}
+.journey-section .timeline-item h3{margin:0 0 8px;font-size:clamp(17px,1.7vw,21px);line-height:1.35;color:#252922}
+.journey-section .timeline-item p{max-width:760px;font-size:13px;line-height:1.8;color:#656B60}
+.journey-section .timeline-date{font:10px var(--mono);color:#52745A;white-space:nowrap;padding-top:5px}
+.project-art{height:370px;display:flex;align-items:center;justify-content:center;position:relative;background:#e9e6dc!important}
+.project-art .mock-screen{position:relative;inset:auto;width:clamp(170px,42%,230px);height:calc(100% - 38px);max-height:330px;flex:none;padding:18px 14px;border:5px solid #252922;border-radius:27px;background:#101a29;box-shadow:0 16px 35px #25292222;transform:rotate(-1.5deg);overflow:hidden}
+.project-card:nth-child(even) .project-art .mock-screen{transform:rotate(1.5deg)}
+.project-card:hover .project-art .mock-screen{transform:translateY(-4px) rotate(0)}
+.project-art .mock-screen:before{content:"";position:absolute;z-index:4;top:5px;left:50%;transform:translateX(-50%);width:48px;height:8px;border-radius:0 0 8px 8px;background:#252922}
+.project-art .mock-top{margin-top:8px}
+.project-art .art-index,.project-art .art-type{top:10px;font-size:8px;color:#656B60}
+.project-visual-note{bottom:8px;left:8px;font-size:8px}
+.project-card--editorial-image-left .project-art,.project-card--editorial-image-right .project-art{min-height:370px}
+@media(max-width:760px){.hero-portrait-frame{width:min(100%,340px);max-height:410px}.workspace-top{order:0}.hero-portrait-frame{order:1}.editor-card{order:2}.phone-stage{order:3}.journey-section .section-wrap{padding-left:20px;padding-right:20px}.journey-section .timeline-item{grid-template-columns:40px minmax(0,1fr);gap:12px;padding:20px 0}.journey-section .timeline-marker{width:34px;min-width:34px;height:30px}.journey-section .timeline-date{grid-column:2;grid-row:1;font-size:9px;justify-self:start;margin-bottom:3px}.journey-section .timeline-item>div{grid-column:2}.project-art,.project-card--editorial-image-left .project-art,.project-card--editorial-image-right .project-art{height:350px;min-height:350px}.project-art .mock-screen{width:clamp(165px,58%,220px);height:calc(100% - 36px);max-height:315px}.project-info{border:0!important}}
 @media(max-width:390px){.section-wrap{width:calc(100% - 30px)}.hero h1{font-size:47px;letter-spacing:-3.8px}.eyebrow{font-size:8px;gap:7px}.hero-actions{gap:8px}.button{padding:12px 12px;gap:12px;font-size:10px}.hero-socials{gap:16px}.phone-stage{height:395px}.phone{transform:scale(.9) rotate(2deg)}.chip-flutter{left:-6px}.chip-api{right:-5px}.tech-chip{gap:6px}.tech-chip small{max-width:100px}.phone-switcher>span{font-size:6px;margin:0 2px}.phone-switcher{gap:3px}.project-filters button{font-size:7px;padding:7px}.mock-screen{padding:12px}.mock-heading{font-size:22px}.contact-links a{align-items:flex-start;flex-direction:column;gap:4px}}@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
